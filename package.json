@@ -1,0 +1,24 @@
+{
+  "name": "iscpf",
+  "version": "0.0.0",
+  "description": "Validate CPF Numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdaciuk/iscpf.git"
+  },
+  "keywords": [
+    "cpf",
+    "validate",
+    "cpf"
+  ],
+  "author": "Fernando Daciuk - @fdaciuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fdaciuk/iscpf/issues"
+  },
+  "homepage": "https://github.com/fdaciuk/iscpf#readme"
+}
