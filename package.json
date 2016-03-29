@@ -13,7 +13,7 @@
     "build:minor": "npm version minor && npm run deploy",
     "build:major": "npm version major && npm run deploy",
     "pretest": "npm run build && npm run lint",
-    "test": "node test.js"
+    "test": "node test/is-cpf-test.js"
   },
   "repository": {
     "type": "git",
