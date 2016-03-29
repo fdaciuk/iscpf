@@ -1,6 +1,6 @@
 {
   "name": "iscpf",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Validate CPF Numbers (for NodeJS and browsers)",
   "main": "dist/is-cpf.min.js",
   "scripts": {
@@ -31,7 +31,9 @@
   },
   "homepage": "https://github.com/fdaciuk/iscpf#readme",
   "standard": {
-    "ignore": ["dist"]
+    "ignore": [
+      "dist"
+    ]
   },
   "devDependencies": {
     "snazzy": "^3.0.0",
