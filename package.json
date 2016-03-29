@@ -1,0 +1,41 @@
+{
+  "name": "iscpf",
+  "version": "0.0.0",
+  "description": "Validate CPF Numbers (for NodeJS and browsers)",
+  "main": "dist/is-cpf.min.js",
+  "scripts": {
+    "clean": "rm -rf dist && mkdir dist",
+    "lint": "standard --verbose | snazzy",
+    "uglify": "uglifyjs index.js --compress --mangle --output dist/is-cpf.min.js",
+    "build": "npm run clean && npm run uglify",
+    "deploy": "npm run build && npm publish && git push origin master --tags",
+    "build:patch": "npm version patch && npm run deploy",
+    "build:minor": "npm version minor && npm run deploy",
+    "build:major": "npm version major && npm run deploy",
+    "pretest": "npm run build && npm run lint",
+    "test": "node test/is-cpf-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdaciuk/iscpf.git"
+  },
+  "keywords": [
+    "cpf",
+    "validate",
+    "cpf"
+  ],
+  "author": "Fernando Daciuk - @fdaciuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fdaciuk/iscpf/issues"
+  },
+  "homepage": "https://github.com/fdaciuk/iscpf#readme",
+  "standard": {
+    "ignore": ["dist"]
+  },
+  "devDependencies": {
+    "snazzy": "^3.0.0",
+    "standard": "^6.0.8",
+    "uglifyjs": "^2.4.10"
+  }
+}
