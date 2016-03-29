@@ -2,7 +2,7 @@
   "name": "iscpf",
   "version": "0.0.0",
   "description": "Validate CPF Numbers (for NodeJS and browsers)",
-  "main": "index.js",
+  "main": "dist/is-cpf.min.js",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "lint": "standard --verbose | snazzy",
