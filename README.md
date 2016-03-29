@@ -60,6 +60,8 @@ console.log(isCpf('75300153206')) // true
 console.log(isCpf('462.498.462-55')) // true
 ```
 
+Enjoy ;)
+
 ## License
 
 [MIT][license-url] &copy; Fernando Daciuk
