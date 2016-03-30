@@ -40,7 +40,7 @@ const isCpf = require('iscpf')
 **AMD:**
 
 ```js
-define(['isCpf'], function (isCpf) {
+define(['./js/is-cpf.min'], function (isCpf) {
   // ...
 })
 ```
