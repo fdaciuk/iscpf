@@ -16,10 +16,8 @@ npm install --save iscpf
 **CDN:**
 
 ```console
-<script src="//cdn.rawgit.com/fdaciuk/iscpf/<VERSION>/dist/is-cpf.min.js"></script>
+<script src="//cdn.rawgit.com/fdaciuk/iscpf/v1.0.1/dist/is-cpf.min.js"></script>
 ```
-
-_Remember to change `<VERSION>` entry before add on your HTML file_
 
 ## Usage
 
