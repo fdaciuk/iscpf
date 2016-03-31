@@ -8,7 +8,7 @@
     "lint": "standard --verbose | snazzy",
     "uglify": "uglifyjs index.js --compress --mangle --output dist/is-cpf.min.js",
     "build": "npm run clean && npm run uglify",
-    "deploy": "npm run build && npm publish && git push origin master --tags",
+    "deploy": "gulp deploy",
     "build:patch": "npm version patch && npm run deploy",
     "build:minor": "npm version minor && npm run deploy",
     "build:major": "npm version major && npm run deploy",
@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "snazzy": "^3.0.0",
     "standard": "^6.0.8",
     "uglifyjs": "^2.4.10"
