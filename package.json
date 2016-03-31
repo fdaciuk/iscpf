@@ -1,6 +1,6 @@
 {
   "name": "iscpf",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Validate CPF Numbers (for NodeJS and browsers)",
   "main": "dist/is-cpf.min.js",
   "scripts": {
