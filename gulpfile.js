@@ -9,7 +9,7 @@ const standard = require('gulp-standardize')
 const exec = require('child_process').exec
 const pkg = require('./package.json')
 
-const coreFiles = 'index.js'
+const coreFiles = 'src/is-cpf.js'
 const allFiles = [].concat(coreFiles, 'gulpfile.js')
 
 const banner = () => {
