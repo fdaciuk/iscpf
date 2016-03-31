@@ -1,11 +1,49 @@
 'use strict'
 
-const gulp = require('gulp')
 const fs = require('fs')
+const gulp = require('gulp')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const header = require('gulp-header')
+const standard = require('gulp-standardize')
+const exec = require('child_process').exec
 const pkg = require('./package.json')
+
+const coreFiles = 'index.js'
+const allFiles = [].concat(coreFiles, 'gulpfile.js')
+
+const banner = () => {
+  return [
+    '/**!',
+    ' * <%= pkg.name %> - v<%= pkg.version %>',
+    ' * <%= pkg.description %>',
+    ' * <%= pkg.homepage %>',
+    '',
+    ' * <%= new Date( Date.now() ) %>',
+    ' * <%= pkg.license %> (c) <%= pkg.author %>',
+    '*/',
+    ''
+  ].join('\n')
+}
+
+gulp.task('lint', () => {
+  gulp.src(allFiles)
+    .pipe(standard())
+    .pipe(standard.reporter('snazzy'))
+    .pipe(standard.reporter('fail'))
+})
+
+gulp.task('uglify', () => {
+  gulp.src(coreFiles)
+    .pipe(concat('is-cpf.min.js'))
+    .pipe(uglify())
+    .pipe(header(banner(), { pkg: pkg }))
+    .pipe(gulp.dest('./dist'))
+})
 
 gulp.task('update-readme', (done) => {
   fs.readFile('README.md', 'utf8', (err, file) => {
+    if (err) throw err
     const updateVersion = file.split('\n').reduce((acc, line) => {
       const versionLine = line.includes('//cdn.rawgit.com/fdaciuk/iscpf')
       let newLine = line
@@ -20,7 +58,6 @@ gulp.task('update-readme', (done) => {
 })
 
 gulp.task('deploy', done => {
-  const date = new Date(Date.now())
   const execCommand = (command, message) => {
     console.log(`- ${message}`)
     return new Promise((resolve, reject) => {
@@ -34,9 +71,12 @@ gulp.task('deploy', done => {
   const syncRepository = [
     'git pull origin master --force'
   ]
+  const createBuild = [
+    'gulp lint',
+    'npm run build'
+  ]
   const createNewVersion = [
     'gulp update-readme',
-    'npm run build',
     'git add .',
     'git commit -m "Build new version"',
     'git tag -f v' + pkg.version
@@ -49,6 +89,7 @@ gulp.task('deploy', done => {
   ]
 
   execCommand(syncRepository, 'Sync repository...')
+    .then(() => execCommand(createBuild, 'Create build...'))
     .then(() => execCommand(createNewVersion, 'Create new Version...'))
     .then(() => execCommand(updateMainBranch, 'Update master branch...'))
     .then(() => execCommand(npmPublish, 'Publish on NPM...'))
@@ -61,5 +102,3 @@ gulp.task('deploy', done => {
       process.exit(1)
     })
 })
-
-
