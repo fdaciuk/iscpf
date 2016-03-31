@@ -16,7 +16,7 @@ npm install --save iscpf
 **CDN:**
 
 ```console
-<script src="//cdn.rawgit.com/fdaciuk/iscpf/v1.0.3/dist/is-cpf.min.js"></script>
+<script src="//cdn.rawgit.com/fdaciuk/iscpf/v1.0.4/dist/is-cpf.min.js"></script>
 ```
 
 ## Usage
