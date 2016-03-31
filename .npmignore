@@ -1,2 +1,5 @@
+src
 test
-./index.js
+.editorconfig
+.travis.yml
+gulpfile.js
