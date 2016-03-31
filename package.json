@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/fdaciuk/iscpf/issues"
   },
-  "homepage": "https://github.com/fdaciuk/iscpf#readme",
+  "homepage": "https://github.com/fdaciuk/iscpf",
   "standard": {
     "ignore": [
       "dist"
