@@ -90,7 +90,7 @@ gulp.task('deploy', done => {
 
   execCommand(syncRepository, 'Sync repository...')
     .then(() => execCommand(createBuild, 'Create build...'))
-    .then(() => execCommand(createNewVersion, 'Create new Version...'))
+    .then(() => execCommand(createNewVersion, 'Create new version...'))
     .then(() => execCommand(updateMainBranch, 'Update master branch...'))
     .then(() => execCommand(npmPublish, 'Publish on NPM...'))
     .then(() => {
