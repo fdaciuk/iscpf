@@ -1,22 +1,22 @@
 # iscpf
 
-> Validate CPF numbers (for NodeJS and browsers)
+> Validate CPF numbers (for Node.js and browsers)
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][build-image]][build-url]
 [![License][license-image]][license-url]
 
 ## Installation
 
-**NPM module:**
+**NPM:**
 
 ```console
 npm install --save iscpf
 ```
 
-**CDN:**
+**Yarn:**
 
 ```console
-<script src="//cdn.rawgit.com/fdaciuk/iscpf/v1.0.6/dist/is-cpf.min.js"></script>
+yarn add iscpf
 ```
 
 ## Usage
@@ -26,29 +26,13 @@ Import the lib:
 **ES6 Modules:**
 
 ```js
-import isCpf from 'iscpf'
+import { isCpf } from 'iscpf'
 ```
 
 **CommonJS:**
 
 ```js
-const isCpf = require('iscpf')
-```
-
-**AMD:**
-
-```js
-define(['./js/is-cpf.min'], function (isCpf) {
-  // ...
-})
-```
-
-**Global (window):**
-
-```js
-;(function (isCpf) {
-  // ...
-})(window.isCpf)
+const { isCpf } = require('iscpf')
 ```
 
 Don't worry about pontuation:
@@ -64,7 +48,7 @@ Enjoy ;)
 
 [MIT][license-url] &copy; Fernando Daciuk
 
-[travis-image]: https://img.shields.io/travis/fdaciuk/iscpf.svg?style=flat-square
-[travis-url]: https://travis-ci.org/fdaciuk/iscpf
+[build-image]: https://img.shields.io/travis/fdaciuk/iscpf.svg?style=flat-square
+[build-url]: https://github.com/fdaciuk/iscpf/actions/workflows/npm-publish.yml
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/fdaciuk/licenses/blob/master/MIT-LICENSE.md

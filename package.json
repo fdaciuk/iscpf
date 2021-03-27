@@ -1,18 +1,23 @@
 {
   "name": "iscpf",
   "version": "1.0.6",
-  "description": "Validate CPF Numbers (for NodeJS and browsers)",
+  "description": "Validate CPF Numbers (for Node.js and browsers)",
   "main": "dist/is-cpf.min.js",
+  "module": "dist/is-cpf.js",
+  "types": "dist/is-cpf.d.ts",
   "scripts": {
-    "clean": "rm -rf dist && mkdir dist",
-    "build": "npm run clean && gulp uglify",
-    "deploy": "gulp deploy",
-    "build:patch": "npm version patch && npm run deploy",
-    "build:minor": "npm version minor && npm run deploy",
-    "build:major": "npm version major && npm run deploy",
-    "pretest": "npm run build && gulp lint",
-    "test": "node test/is-cpf-test.js"
+    "build": "tsc",
+    "bundle": "parcel build dist/is-cpf.js --out-file dist/is-cpf.min.js",
+    "clean": "rm -rf dist",
+    "test": "ts-node --project tsconfig-dev.json ./src/is-cpf.test.ts",
+    "lint": "eslint . --ext js,ts",
+    "lint:fix": "eslint --fix . --ext js,ts",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "prepublish": "npm run build && npm run bundle"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fdaciuk/iscpf.git"
@@ -27,16 +32,16 @@
     "url": "https://github.com/fdaciuk/iscpf/issues"
   },
   "homepage": "https://github.com/fdaciuk/iscpf",
-  "standard": {
-    "ignore": [
-      "dist"
-    ]
-  },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-header": "^1.7.1",
-    "gulp-standardize": "^1.1.0",
-    "gulp-uglify": "^1.5.3"
+    "@typescript-eslint/eslint-plugin": "4.19.0",
+    "@typescript-eslint/parser": "4.19.0",
+    "eslint": "7.22.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "4.3.1",
+    "parcel-bundler": "1.12.5",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.3"
   }
 }

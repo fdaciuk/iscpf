@@ -1,8 +1,6 @@
-'use strict'
+import { isCpf } from './is-cpf'
 
-const isCpf = require('../dist/is-cpf.min.js')
-
-console.assert(isCpf() === false)
+console.assert(isCpf('') === false)
 console.assert(isCpf('000.000.000-00') === false)
 console.assert(isCpf('111111111 11') === false)
 console.assert(isCpf('22222222222') === false)
